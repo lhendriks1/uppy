@@ -7,7 +7,7 @@ const path = require('path')
 
 const { mkdir, stat, writeFile } = fs.promises
 
-const SOURCE = 'packages/{*,@uppy/*}/src/**/*.js'
+const SOURCE = 'packages/{*,@uppy/*}/src/**/*.js?(x)'
 // Files not to build (such as tests)
 const IGNORE = /\.test\.js$|__mocks__|svelte|angular|companion\//
 // Files that should trigger a rebuild of everything on change
@@ -19,9 +19,12 @@ const META_FILES = [
   'bin/build-lib.js',
 ]
 
-function lastModified (file) {
-  return stat(file).then((s) => s.mtime, (err) => {
+function lastModified (file, createParentDir = false) {
+  return stat(file).then((s) => s.mtime, async (err) => {
     if (err.code === 'ENOENT') {
+      if (createParentDir) {
+        await mkdir(path.dirname(file), { recursive: true })
+      }
       return 0
     }
     throw err
@@ -42,17 +45,19 @@ async function buildLib () {
 
     // on a fresh build, rebuild everything.
     if (!process.env.FRESH) {
-      const srcMtime = await lastModified(file)
-      const libMtime = await lastModified(libFile)
-        .catch(() => 0) // probably doesn't exist
+      const [srcMtime, libMtime] = await Promise.all([
+        lastModified(file),
+        lastModified(libFile, true),
+      ])
       // Skip files that haven't changed
       if (srcMtime < libMtime && metaMtime < libMtime) {
         continue
       }
+    } else {
+      await mkdir(path.dirname(libFile), { recursive: true })
     }
 
     const { code, map } = await babel.transformFileAsync(file, { sourceMaps: true })
-    await mkdir(path.dirname(libFile), { recursive: true })
     await Promise.all([
       writeFile(libFile, code),
       writeFile(`${libFile}.map`, JSON.stringify(map)),
