@@ -8511,6 +8511,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.10.4
     "@babel/preset-env": ^7.14.7
     "@babel/register": ^7.10.5
+    "@babel/types": ^7.17.0
     "@goto-bus-stop/envify": ^5.0.0
     "@parcel/transformer-vue": ^2.2.1
     "@size-limit/preset-big-lib": 7.0.5

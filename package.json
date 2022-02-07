@@ -5,6 +5,7 @@
   "description": "Extensible JavaScript file upload widget with support for drag&drop, resumable uploads, previews, restrictions, file processing/encoding, remote providers like Instagram, Dropbox, Google Drive, S3 and more :dog:",
   "lint-staged": {
     "*.js": "eslint",
+    "*.jsx": "eslint --fix",
     "*.md": [
       "remark --silently-ignore -i .remarkignore -foq",
       "eslint --fix"
@@ -48,6 +49,7 @@
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "@babel/preset-env": "^7.14.7",
     "@babel/register": "^7.10.5",
+    "@babel/types": "^7.17.0",
     "@goto-bus-stop/envify": "^5.0.0",
     "@parcel/transformer-vue": "^2.2.1",
     "@size-limit/preset-big-lib": "7.0.5",
