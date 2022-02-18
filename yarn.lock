@@ -9082,7 +9082,7 @@ __metadata:
     "@uppy/companion-client": "workspace:^"
     "@uppy/utils": "workspace:^"
     "@uppy/xhr-upload": "workspace:^"
-    nanoid: ^3.1.25
+    nanoid: ^3.3.1
     whatwg-fetch: 3.6.2
   peerDependencies:
     "@uppy/core": "workspace:^"
@@ -9204,7 +9204,7 @@ __metadata:
     lodash.throttle: ^4.1.1
     mime-match: ^1.0.2
     namespace-emitter: ^2.0.1
-    nanoid: ^3.1.25
+    nanoid: ^3.3.1
     preact: ^10.5.13
   languageName: unknown
   linkType: soft
@@ -9224,7 +9224,7 @@ __metadata:
     is-shallow-equal: ^1.0.1
     lodash.debounce: ^4.0.8
     memoize-one: ^5.0.4
-    nanoid: ^3.1.25
+    nanoid: ^3.3.1
     preact: ^10.5.13
     resize-observer-polyfill: ^1.5.0
   peerDependencies:
@@ -9514,7 +9514,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@uppy/store-redux@workspace:packages/@uppy/store-redux"
   dependencies:
-    nanoid: ^3.1.25
+    nanoid: ^3.3.1
     redux: 4.0.5
   languageName: unknown
   linkType: soft
@@ -9647,7 +9647,7 @@ __metadata:
   dependencies:
     "@uppy/companion-client": "workspace:^"
     "@uppy/utils": "workspace:^"
-    nanoid: ^3.1.25
+    nanoid: ^3.3.1
     nock: ^13.1.0
   peerDependencies:
     "@uppy/core": "workspace:^"
@@ -28871,7 +28871,7 @@ hexo-filter-github-emojis@arturi/hexo-filter-github-emojis:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.25, nanoid@npm:^3.1.30":
+"nanoid@npm:^3.1.30":
   version: 3.1.30
   resolution: "nanoid@npm:3.1.30"
   bin:
@@ -28886,6 +28886,15 @@ hexo-filter-github-emojis@arturi/hexo-filter-github-emojis:
   bin:
     nanoid: bin/nanoid.cjs
   checksum: 3d1d5a69fea84e538057cf64106e713931c4ef32af344068ecff153ff91252f39b0f2b472e09b0dfff43ac3cf520c92938d90e6455121fe93976e23660f4fccc
+  languageName: node
+  linkType: hard
+
+"nanoid@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "nanoid@npm:3.3.1"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 4ef0969e1bbe866fc223eb32276cbccb0961900bfe79104fa5abe34361979dead8d0e061410a5c03bc3d47455685adf32c09d6f27790f4a6898fb51f7df7ec86
   languageName: node
   linkType: hard
 
